@@ -55,6 +55,8 @@ public class TabFragment_Info extends Fragment {
     private LocationRequest mLocationRequest;
     private Location location = new Location("Weather");
     private String temperature = "";
+    private TextView infoWeatherTemp, infoMaskTitle1, infoMaskBody1, infoMaskTitle2,
+            infoMaskBody2, infoMaskTitle3, infoMaskBody3;
     private long UPDATE_INTERVAL = 10 * 1000;  /* 10 secs */
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
 
@@ -77,10 +79,10 @@ public class TabFragment_Info extends Fragment {
                     123);
         }
     }
-    public void getLastLocation(Context context) {
+    public synchronized void getLastLocation(Context context) {
         // Get last known recent location using new Google Play Services SDK (v11+)
         FusedLocationProviderClient locationClient = getFusedLocationProviderClient(context);
-
+        System.out.println("HEllo WOrldd Locxation");
         locationClient.getLastLocation()
                 .addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
@@ -89,7 +91,14 @@ public class TabFragment_Info extends Fragment {
                         if (_location != null) {
                             Log.d("", "LOCATION");
                             Log.d("", _location.toString());
-                            location = _location;
+                            location.set(_location);
+                            System.out.println("AAA"+location.getLatitude() +" "+ location.getLongitude());
+                            AsyncHttpClient client = new AsyncHttpClient();
+                            setWeather(client, location.getLatitude(), location.getLongitude(), infoWeatherTemp);
+
+                            TextView [] infoMaskTitleArr  = {infoMaskTitle1, infoMaskTitle2, infoMaskTitle3};
+                            TextView [] infoMaskBodyArr  = {infoMaskBody1, infoMaskBody2, infoMaskBody3,};
+                            setMask(client, location.getLatitude(), location.getLongitude(), infoMaskTitleArr, infoMaskBodyArr);
                         }
                     }
                 })
@@ -105,12 +114,10 @@ public class TabFragment_Info extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Context context = Objects.requireNonNull(getActivity());
-        checkPermission(context);
-        Log.d("", "START");
-        getLastLocation(context);
 
+        Context context = Objects.requireNonNull(getActivity());
         View view = inflater.inflate(R.layout.tab_fragment_info, null);
+
         // Header Button
         Button headerButton = (Button) view.findViewById(R.id.header_button);
         setHeaderButtonListener(headerButton);
@@ -121,9 +128,13 @@ public class TabFragment_Info extends Fragment {
         TextView infoTime = (TextView) view.findViewById((R.id.info_time));
         setCurrentTime(infoTime);
         // Get Location & Get Weather using REST API
-        TextView infoWeatherTemp = (TextView) view.findViewById((R.id.info_weathertempur));
+
+        //Get Location
+        checkPermission(context);
+        getLastLocation(context);
+
+        infoWeatherTemp = (TextView) view.findViewById((R.id.info_weathertempur));
         AsyncHttpClient client = new AsyncHttpClient();
-        setWeather(client, location.getLatitude(), location.getLongitude(), infoWeatherTemp);
         // Current News to display
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -134,10 +145,65 @@ public class TabFragment_Info extends Fragment {
         TextView infoNewsBody = (TextView) view.findViewById((R.id.info_newsbody));
         AppCompatImageView infoNewsImg = (AppCompatImageView) view.findViewById((R.id.info_newsimg));
         setNews(client, infoNews, infoNewsTitle, infoNewsBody, infoNewsImg);
+
+        // Set Mask info
+        infoMaskTitle1 = (TextView) view.findViewById((R.id.info_masktitle1));
+        infoMaskBody1= (TextView) view.findViewById((R.id.info_maskbody1));
+        infoMaskTitle2 = (TextView) view.findViewById((R.id.info_masktitle2));
+        infoMaskBody2 = (TextView) view.findViewById((R.id.info_maskbody2));
+        infoMaskTitle3 = (TextView) view.findViewById((R.id.info_masktitle3));
+        infoMaskBody3 = (TextView) view.findViewById((R.id.info_maskbody3));
+
         return view;
     }
 
-    private void setNews(AsyncHttpClient client, final LinearLayout infoNews, final TextView infoNewsTitle, final TextView infoNewsBody, final AppCompatImageView infoNewsImg){
+    private synchronized void setMask(AsyncHttpClient client, Double latitude, Double longitude, final TextView [] infoMaskTitleArr, final TextView [] infoMaskBodyArr){
+        System.out.println(generateMaskUrl(latitude, longitude));
+        System.out.println("BBB"+location);
+        client.get(generateMaskUrl(latitude, longitude), new JsonHttpResponseHandler() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                // If the response is JSONObject instead of expected JSONArray
+                System.out.println(response.toString());
+                JSONArray stores = null;
+                String store1 = "";
+                String pos1 = "";
+                String store2 = "";
+                String pos2 = "";
+                String store3 = "";
+                String pos3 = "";
+
+                try {
+                    stores = response.getJSONArray("stores");
+                    store1 = stores.getJSONObject(0).getString("name");
+                    pos1 = stores.getJSONObject(0).getString("addr");
+                    store2 = stores.getJSONObject(1).getString("name");
+                    pos2 = stores.getJSONObject(1).getString("addr");
+                    store3 = stores.getJSONObject(2).getString("name");
+                    pos3= stores.getJSONObject(2).getString("addr");
+                } catch (JSONException e) {
+                    Log.d("", "ERROR");
+                }
+
+                System.out.println((store1));
+                try {
+                    infoMaskTitleArr[0].setText(store1);
+                    infoMaskTitleArr[1].setText(store2);
+                    infoMaskTitleArr[2].setText(store3);
+                    infoMaskBodyArr[0].setText(pos1);
+                    infoMaskBodyArr[1].setText(pos2);
+                    infoMaskBodyArr[2].setText(pos3);
+                }
+                catch (Exception e){
+                    Log.d("", "ERROR Set Text");
+                }
+            }
+
+        });
+    }
+
+    private synchronized void setNews(AsyncHttpClient client, final LinearLayout infoNews, final TextView infoNewsTitle, final TextView infoNewsBody, final AppCompatImageView infoNewsImg){
 
         client.get(generateNewsUrl(), new JsonHttpResponseHandler() {
             @SuppressLint("SetTextI18n")
@@ -153,9 +219,9 @@ public class TabFragment_Info extends Fragment {
                     Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
                     infoNewsImg.setImageBitmap(bmp);
                     // Description Set
-                    infoNewsBody.setText(main.getJSONObject(0).getString("description").substring(0, 15)+"...");
+                    infoNewsBody.setText(main.getJSONObject(0).getString("description").substring(0, 35)+"...");
                     // Title Set
-                    infoNewsTitle.setText(main.getJSONObject(0).getString("title").substring(0, 10)+"...");
+                    infoNewsTitle.setText(main.getJSONObject(0).getString("title").substring(0, 20)+"...");
                     class NewsOnClickListener implements View.OnClickListener
                     {
 
@@ -184,7 +250,8 @@ public class TabFragment_Info extends Fragment {
         });
     }
 
-    private void setWeather(AsyncHttpClient client, Double latitude, Double longitude, final TextView infoWeatherTemp){
+    private synchronized void setWeather(AsyncHttpClient client, Double latitude, Double longitude, final TextView infoWeatherTemp){
+        System.out.println("BBB"+location);
         client.get(generateWeatherUrl(latitude, longitude), new JsonHttpResponseHandler() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -200,7 +267,13 @@ public class TabFragment_Info extends Fragment {
                 }
                 Log.d("", _temperature);
                 temperature = _temperature;
-                infoWeatherTemp.setText(temperature.substring(0, 4)+"ºc");
+                System.out.println((temperature));
+                try {
+                    infoWeatherTemp.setText(temperature.substring(0, 4)+"ºc");
+                }
+                catch (Exception e){
+                    infoWeatherTemp.setText(temperature+"ºc");
+                }
             }
 
         });
@@ -211,6 +284,10 @@ public class TabFragment_Info extends Fragment {
     }
     private String generateNewsUrl() {
         return "http://newsapi.org/v2/top-headlines?country=kr&apiKey="+NEWS_API_KEY;
+    }
+    private String generateMaskUrl(Double latitude, Double longitude) {
+        return "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?lat="+latitude+
+                "&lng="+longitude+"&m=1000";
     }
 
     private void setHeaderButtonListener(Button headerButton) {
