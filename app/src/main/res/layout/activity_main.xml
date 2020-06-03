@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/mainout">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/sa_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/sa_main_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:background="@color/ARlarm_white"
+        app:tabIndicator="@drawable/main_tabindicator"
+        app:tabIndicatorColor="@color/ARlarm_blue"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorAnimationDuration="500"
+        app:tabRippleColor="@color/ARlarm_lightorange"
+        app:tabUnboundedRipple="true"
+        app:tabIconTint="@drawable/main_tabiconcolor">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_tabicon_info" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_tabicon_alarm" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_tabicon_stats" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_tabicon_sysset" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+</LinearLayout>
+

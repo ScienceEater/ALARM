@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ARlarm_blue">#6174FF</color>
+    <color name="ARlarm_lightblue">#BBBDFF</color>
+    <color name="ARlarm_lightorange">#FFBB71</color>
+
+    <color name="ARlarm_back">#F5FAFF</color>
+    <color name="ARlarm_grey1">#E1E6F0</color>
+    <color name="ARlarm_grey2">#B7B9C7</color>
+    <color name="ARlarm_grey3">#677387</color>
+    <color name="ARlarm_grey5">#2D3C55</color>
+    <color name="ARlarm_grey6">#555555</color>
+
+    <color name="ARlarm_white">#FFFFFF</color>
+    <color name="ARlarm_black1">#666666</color>
+    <color name="ARlarm_black2">#444444</color>
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="color1">#424549</color>
+    <color name="color2">#7e455e</color>
+    <color name="color3">#796e25</color>
+    <color name="color4">#59717c</color>
+
+</resources>

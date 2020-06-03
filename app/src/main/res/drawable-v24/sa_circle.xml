@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- shadow.9.png here : 2side drop color for neumorphism design
+    <item android:drawable="@drawable/shadow3" />
+    -->
+
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="oval"
+            android:padding="10dp">
+            <solid android:color="@color/ARlarm_grey1"/>
+            <corners
+                android:bottomRightRadius="20dp"
+                android:bottomLeftRadius="20dp"
+                android:topLeftRadius="20dp"
+                android:topRightRadius="20dp"/>
+        </shape>
+
+    </item>
+</layer-list>

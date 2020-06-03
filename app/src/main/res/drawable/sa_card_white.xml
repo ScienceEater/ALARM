@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- in other case
+    <item android:state_hovered="true"  android:drawable="@drawable/sa_cardback_pb2">
+    </item>
+    -->
+
+    <item android:drawable="@drawable/sa_cardback_gw1">
+    </item>
+
+</selector>

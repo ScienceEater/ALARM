@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/ARlarm_back"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:paddingTop="20dp"
+
+        android:orientation="vertical"
+        android:elevation="8dp">
+
+        <Button
+            android:id="@+id/header_button"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/sa_header_rectangle"
+            android:elevation="0dp"
+
+            android:text="AR-LARM"
+            android:fontFamily="@font/cocogoose"
+            android:textAlignment="center"
+            android:textColor="@color/ARlarm_blue"
+            android:textSize="18sp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="메인 화면 정보 설정"
+                    android:fontFamily="@font/spoqahansans_regular"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/ARlarm_grey3"
+                    android:textSize="20sp">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:text=">"
+                    android:fontFamily="@font/spoqahansans_bold"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/ARlarm_blue"
+                    android:textSize="24sp">
+                </TextView>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@color/ARlarm_grey1">
+            </View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="알람 종료 방지 설정"
+                    android:fontFamily="@font/spoqahansans_regular"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/ARlarm_grey3"
+                    android:textSize="20sp">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:text=">"
+                    android:fontFamily="@font/spoqahansans_bold"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/ARlarm_blue"
+                    android:textSize="24sp">
+                </TextView>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@color/ARlarm_grey1">
+            </View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="홈 버튼 방지 설정"
+                    android:fontFamily="@font/spoqahansans_regular"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/ARlarm_grey3"
+                    android:textSize="20sp">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+
+                    android:text=">"
+                    android:fontFamily="@font/spoqahansans_bold"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/ARlarm_blue"
+                    android:textSize="24sp">
+                </TextView>
+            </RelativeLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+
+            android:ellipsize="end"
+            android:fontFamily="@font/spoqahansans_bold"
+            android:text="AR-LARM 2020"
+            android:textAlignment="center"
+            android:textColor="@color/ARlarm_grey2"
+            android:textSize="16sp">
+            
+        </TextView>
+
+    </LinearLayout>
+
+
+</ScrollView>

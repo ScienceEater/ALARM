@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/ARlarm_back"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:paddingTop="20dp"
+
+        android:orientation="vertical"
+        android:elevation="8dp">
+
+        <Button
+            android:id="@+id/header_button"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/sa_header_rectangle"
+            android:elevation="0dp"
+
+            android:text="AR-LARM"
+            android:fontFamily="@font/cocogoose"
+            android:textAlignment="center"
+            android:textColor="@color/ARlarm_blue"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:padding="10dp"
+
+            android:elevation="8dp"
+            android:background="@drawable/sa_cardback_pb2"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="graph here"
+                android:textColor="@color/ARlarm_lightblue">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
+
+                android:background="@color/ARlarm_back"
+                android:text="정렬 기준 > 최근 순"
+                android:fontFamily="@font/spoqahansans_regular"
+                android:textAlignment="viewStart"
+                android:textColor="@color/ARlarm_grey3"
+                android:textSize="14sp">
+            </TextView>
+
+            <!-- statistic object 1-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:background="@drawable/sa_header_rectangle"
+
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+
+                        android:ellipsize="end"
+                        android:fontFamily="@font/spoqahansans_regular"
+                        android:text="2020-05-21"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/ARlarm_grey2"
+                        android:textSize="14sp">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="-12dp"
+
+                        android:ellipsize="end"
+                        android:fontFamily="@font/spoqahansans_bold"
+                        android:text="07 : 22 AM"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/ARlarm_blue"
+                        android:textSize="30sp">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/spoqahansans_regular"
+                        android:text="기타 정보 기타 정보 기타 기타 정보 기타 정보 기타 기타 정보 기타 기타 정보 기타 정보"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/ARlarm_grey2"
+                        android:textSize="14sp">
+                    </TextView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- statistic object 2-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:background="@drawable/sa_header_rectangle"
+
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+
+                        android:ellipsize="end"
+                        android:fontFamily="@font/spoqahansans_regular"
+                        android:text="2020-05-21"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/ARlarm_grey2"
+                        android:textSize="14sp">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="-12dp"
+
+                        android:ellipsize="end"
+                        android:fontFamily="@font/spoqahansans_bold"
+                        android:text="07 : 22 AM"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/ARlarm_blue"
+                        android:textSize="30sp">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/spoqahansans_regular"
+                        android:text="기타 정보 기타 정보 기타 기타 정보 기타 정보 기타 기타 정보 기타 기타 정보 기타 정보"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/ARlarm_grey2"
+                        android:textSize="14sp">
+                    </TextView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- statistic object 3-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:background="@drawable/sa_header_rectangle"
+
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+
+                        android:ellipsize="end"
+                        android:fontFamily="@font/spoqahansans_regular"
+                        android:text="2020-05-21"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/ARlarm_grey2"
+                        android:textSize="14sp">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="-12dp"
+
+                        android:ellipsize="end"
+                        android:fontFamily="@font/spoqahansans_bold"
+                        android:text="07 : 22 AM"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/ARlarm_blue"
+                        android:textSize="30sp">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/spoqahansans_regular"
+                        android:text="기타 정보 기타 정보 기타 기타 정보 기타 정보 기타 기타 정보 기타 기타 정보 기타 정보"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/ARlarm_grey2"
+                        android:textSize="14sp">
+                    </TextView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- statistic object 4-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:background="@drawable/sa_header_rectangle"
+
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+
+                        android:ellipsize="end"
+                        android:fontFamily="@font/spoqahansans_regular"
+                        android:text="2020-05-21"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/ARlarm_grey2"
+                        android:textSize="14sp">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="-12dp"
+
+                        android:ellipsize="end"
+                        android:fontFamily="@font/spoqahansans_bold"
+                        android:text="07 : 22 AM"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/ARlarm_blue"
+                        android:textSize="30sp">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/spoqahansans_regular"
+                        android:text="기타 정보 기타 정보 기타 기타 정보 기타 정보 기타 기타 정보 기타 기타 정보 기타 정보"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/ARlarm_grey2"
+                        android:textSize="14sp">
+                    </TextView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+
+            android:ellipsize="end"
+            android:fontFamily="@font/spoqahansans_bold"
+            android:text="AR-LARM 2020"
+            android:textAlignment="center"
+            android:textColor="@color/ARlarm_grey2"
+            android:textSize="16sp">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+</ScrollView>

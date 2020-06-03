@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list>
+    <!-- shadow.9.png here : 2side drop color for neumorphism design
+    <item android:drawable="@drawable/shadow3" />
+    -->
+
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle"
+            android:padding="10dp">
+            <gradient
+                android:angle="-45"
+
+                android:startColor="#7930FF"
+                android:centerColor="#7869FF"
+                android:endColor="@color/ARlarm_blue"/>
+            <corners
+                android:radius="0dp"/>
+        </shape>
+
+    </item>
+
+</layer-list>
