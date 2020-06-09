@@ -44,10 +44,7 @@
             android:gravity="center_vertical"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal" >
-            <View
-                android:layout_width="15dp"
-                android:layout_height="360dp">
-            </View>
+
 
 <!--            &lt;!&ndash; alarm object 2 &ndash;&gt;-->
 <!--            &lt;!&ndash; 알람오브젝트1 과 완전히 동일하니 지우고 사용해주세요! &ndash;&gt;-->
