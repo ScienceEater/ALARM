@@ -43,17 +43,13 @@ public class sa_TabFragment_Alarm extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.sa_tab_fragment_alarm, null);
         //
+
         HorizontalScrollView scrollView = (HorizontalScrollView) view.findViewById(R.id.hoview);
 
         LinearLayout TopLayout = view.findViewById(R.id.alarms);
         //TopLayout.setLayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
-        TopLayout.setOrientation(LinearLayout.HORIZONTAL);
-        TopLayout.setBackgroundColor(Color.argb(255, 255, 255, 255));
-
-        View view2 = inflater.inflate(R.layout.alarm_item, null);
-
-        LinearLayout linearLayout1 = view2.findViewById(R.id.object1);
-        //((LinearLayout)linearLayout1.getParent()).removeView(linearLayout1);
+        //TopLayout.setOrientation(LinearLayout.HORIZONTAL);
+        //TopLayout.setBackgroundColor(Color.argb(255, 255, 255, 255))
 
 //        Map<String, LinearLayout> n = new HashMap<String, LinearLayout>();
 //        for (int i = 0 ; i<cnt; i++){
@@ -61,12 +57,12 @@ public class sa_TabFragment_Alarm extends Fragment {
 //        }
 
         for (int i = 0; i < cnt; i++){
-            //linearLayout1 setting section
-            //linearLayout1.setTag(i);
-            ((LinearLayout)linearLayout1.getParent()).removeView(linearLayout1);
-            TopLayout.addView(linearLayout1);
+            View _view = inflater.inflate(R.layout.alarm_item, null);
+            LinearLayout _linearLayout = _view.findViewById(R.id.object1);
+            TopLayout.addView(_linearLayout);
         }
-        //scrollView.addView(TopLayout);
+        scrollView.removeAllViews();
+        scrollView.addView(TopLayout);
 
         //
         Button button1 = (Button)view.findViewById(R.id.newalarm_button);
@@ -92,7 +88,8 @@ public class sa_TabFragment_Alarm extends Fragment {
 //        layout1.addView(tv_etc);
 
 
-
         return view;
+
+
     }
 }
