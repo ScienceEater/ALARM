@@ -278,19 +278,16 @@ public class TabFragment_Info extends Fragment {
                 String _city = "";
                 try {
                     main = response.getJSONObject("main");
-                    city = response.getJSONObject("name");
                     _temperature = main.getString("temp");
-                    _city = city.toString();
+                    _city = main.getString("city");
 
                 } catch (JSONException e) {
                     Log.d("", "ERROR");
                 }
-                Log.d("", _temperature);
-                Log.d("", _city);
+
                 temperature = _temperature;
                 cityy = _city;
                 infoCity.setText("위치: "+cityy);
-                System.out.println((temperature));
                 try {
                     infoWeatherTemp.setText(temperature.substring(0, 4)+"ºc"); //0,2 로?
                 }
