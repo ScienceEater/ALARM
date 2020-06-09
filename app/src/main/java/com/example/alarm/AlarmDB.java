@@ -57,6 +57,15 @@ public class AlarmDB {
 
         Toast.makeText(ctx.getApplicationContext(), "추가 성공", Toast.LENGTH_SHORT).show();
     }
+
+    //알람 종료 기록
+    public void logging(int pid, String time){
+        db = mHelper.getWritableDatabase();
+
+        db.execSQL("INSERT INTO Log VALUES ("+Integer.toString(pid)+",'"+time+"');");
+
+        Toast.makeText(ctx.getApplicationContext(), "종료 기록 성공", Toast.LENGTH_SHORT).show();
+    }
     /**
      *
 
@@ -133,6 +142,18 @@ public class AlarmDB {
         return ret;
     }
 
+    public int CountPid(){
+        int ret=0;
+        db=mHelper.getReadableDatabase();
+        Cursor cursor;
+        cursor=db.rawQuery("SELECT count(*) from Alarm_P",null);
+        if(cursor.moveToFirst()){
+            ret=cursor.getInt(0);
+        }
+        cursor.close();
+        mHelper.close();
+        return ret;
+    }
 
     /**
      *

@@ -13,7 +13,7 @@ public class TabFragment_Statistic extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_fragment_statistic, null);
+        View view = inflater.inflate(R.layout.sa_tab_fragment_statistic, null);
 
         return view;
     }

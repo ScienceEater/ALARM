@@ -28,8 +28,11 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
                 TabFragment_Statistic tabFragment_statistic = new TabFragment_Statistic();
                 return tabFragment_statistic;
             case 3:
-                TabFragment_Setting tabFragment_setting = new TabFragment_Setting();
-                return tabFragment_setting;
+                sa_TabFragment_Sysset sa_tabFragment_sysset = new sa_TabFragment_Sysset();
+                return sa_tabFragment_sysset;
+//            case 3:
+//                TabFragment_Setting tabFragment_setting = new TabFragment_Setting();
+//                return tabFragment_setting;
 
             default:
                 return null;

@@ -21,7 +21,7 @@ import java.util.List;
 public class sa_TabFragment_Info extends Fragment {
 
     int cnt=0;
-
+    //삭제해도 괜찮음 2020.06.03
 
     @Nullable
     @Override

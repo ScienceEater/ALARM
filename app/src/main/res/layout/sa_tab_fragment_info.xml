@@ -113,7 +113,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/info_weathertempur"
+                        android:id="@+id/sa_info_weathertempur"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="-24dp"
@@ -127,7 +127,7 @@
                     </TextView>
                     <!-- 날씨 텍스트 부분 수정 필요-->
                     <TextView
-                        android:id="@+id/info_weatherplace"
+                        android:id="@+id/sa_info_weatherplace"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="-18dp"

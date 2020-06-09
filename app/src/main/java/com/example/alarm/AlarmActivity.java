@@ -1,14 +1,27 @@
 package com.example.alarm;
 
+import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AlarmActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
+
+    AlarmDB pdb;
+    Context mContext = this.getApplicationContext();
+
+    Intent intent = getIntent();
+    //int pid= intent.getIntExtra("pid",-1);
+    //String strTag = intent.getStringExtra("contents");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +57,21 @@ public class AlarmActivity extends AppCompatActivity {
         finish();
     }
 
+    /*알람 종료 시 기록*/
+    private void logAlarm() {
+        long now = System.currentTimeMillis();
+        Date mDate = new Date(now);
+        SimpleDateFormat simpleDate = new SimpleDateFormat("MM-dd hh:mm");
+        String getTime = simpleDate.format(mDate);
+
+        int pid=intent.getIntExtra("pid",-1);
+
+        mContext = getApplicationContext();
+        pdb = new AlarmDB(mContext);
+
+        pdb.logging(pid, getTime);
+    }
+
     View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -51,6 +79,7 @@ public class AlarmActivity extends AppCompatActivity {
                 case R.id.btnClose:
                     // 알람 종료
                     close();
+                    logAlarm();
 
                     break;
             }

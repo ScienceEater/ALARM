@@ -42,6 +42,10 @@ public class AlarmService extends Service {
         Intent intent1 = new Intent(this, AlarmActivity.class);
         // 새로운 TASK 를 생성해서 Activity 를 최상위로 올림
         intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        int pid=intent.getIntExtra("pid",-1);
+        //String tag = intent.getStringExtra("contents");
+        intent1.putExtra("pid", pid);
         startActivity(intent1);
 
         Log.d("AlarmService", "Alarm");

@@ -21,6 +21,7 @@ import java.util.Locale;
 public class AlarmSetActivity extends AppCompatActivity {
 
     private View view;
+
     AlarmDB pdb;
     Context mContext;
 

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@color/ARlarm_back"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- alarm object 1 -->
+    <LinearLayout
+        android:id="@+id/object1"
+        android:layout_width="180dp"
+        android:layout_height="360dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="10dp"
+        android:padding="10dp"
+
+        android:elevation="6dp"
+        android:background="@drawable/sa_cardback_pb2"
+        android:orientation="vertical">
+        <!-- 알람제목 및 울리는 시간, 간편 온오프 버튼-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/alarm_timeleft1"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+
+                android:text="18분 후"
+                android:fontFamily="@font/spoqahansans_bold"
+                android:textAlignment="viewStart"
+                android:textColor="@color/ARlarm_lightorange"
+                android:textSize="12sp"
+                android:ellipsize="end">
+            </TextView>
+            <TextView
+                android:id="@+id/alarm_title1"
+                android:layout_below="@id/alarm_timeleft1"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="-4dp"
+
+                android:text="알람 제목 10자이내"
+                android:fontFamily="@font/spoqahansans_regular"
+                android:textAlignment="viewStart"
+                android:textColor="@color/ARlarm_lightblue"
+                android:textSize="12sp"
+                android:ellipsize="end">
+            </TextView>
+
+            <!-- alarm on off btn! 일단 기능말고 자리만 표시해 두었습니다-->
+            <View
+                android:id="@+id/alarm_onoffbtn1"
+                android:layout_height="30dp"
+                android:layout_width="50dp"
+                android:background="@drawable/sa_header_rectangle"
+                android:layout_alignParentRight="true">
+            </View>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="65dp"
+            android:background="@color/ARlarm_grey2">
+        </View>
+
+        <!-- 알람의 시간 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/alarm_time1"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginEnd="8dp"
+
+                android:ellipsize="end"
+                android:fontFamily="@font/spoqahansans_bold"
+                android:text="07:40"
+                android:textAlignment="viewStart"
+                android:textColor="@color/ARlarm_white"
+                android:textSize="56sp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/alarm_ampm1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:ellipsize="end"
+                android:fontFamily="@font/spoqahansans_bold"
+                android:text="am"
+                android:textAlignment="viewStart"
+                android:textColor="@color/ARlarm_lightblue"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- 활성화된 요일 -->
+        <LinearLayout
+            android:id="@+id/alarm_day1"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:ellipsize="end"
+                android:fontFamily="@font/spoqahansans_regular"
+                android:text="월    화    수    목    금    토    일"
+                android:textAlignment="viewStart"
+                android:textColor="@color/ARlarm_lightblue"
+                android:textSize="16sp">
+            </TextView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/ARlarm_grey2">
+        </View>
+
+        <!--활성화된 테마알람 이미지-->
+        <LinearLayout
+            android:layout_height="30dp"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dp">
+            <View
+                android:layout_height="30dp"
+                android:layout_width="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/sa_header_rectangle">
+            </View>
+            <View
+                android:layout_height="30dp"
+                android:layout_width="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/sa_header_rectangle">
+            </View>
+            <View
+                android:layout_height="30dp"
+                android:layout_width="30dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/sa_header_rectangle">
+            </View>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/alarm_sub11"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+
+                android:text="무적 알람 on"
+                android:fontFamily="@font/spoqahansans_bold"
+                android:textAlignment="viewStart"
+                android:textColor="@color/ARlarm_white"
+                android:textSize="15sp"
+                android:ellipsize="end">
+            </TextView>
+            <TextView
+                android:id="@+id/alarm_sub12"
+                android:layout_below="@id/alarm_sub11"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+
+                android:text="5분전 5분후 10분후"
+                android:fontFamily="@font/spoqahansans_regular"
+                android:textAlignment="viewStart"
+                android:textColor="@color/ARlarm_lightblue"
+                android:textSize="12sp"
+                android:ellipsize="end">
+            </TextView>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

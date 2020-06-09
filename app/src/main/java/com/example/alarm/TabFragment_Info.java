@@ -55,7 +55,8 @@ public class TabFragment_Info extends Fragment {
     private LocationRequest mLocationRequest;
     private Location location = new Location("Weather");
     private String temperature = "";
-    private TextView infoWeatherTemp, infoMaskTitle1, infoMaskBody1, infoMaskTitle2,
+    private String cityy = "";
+    private TextView infoWeatherTemp, infoCity, infoMaskTitle1, infoMaskBody1, infoMaskTitle2,
             infoMaskBody2, infoMaskTitle3, infoMaskBody3;
     private long UPDATE_INTERVAL = 10 * 1000;  /* 10 secs */
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
@@ -84,7 +85,7 @@ public class TabFragment_Info extends Fragment {
     public synchronized void getLastLocation(Context context) {
         // Get last known recent location using new Google Play Services SDK (v11+)
         FusedLocationProviderClient locationClient = getFusedLocationProviderClient(context);
-        System.out.println("HEllo WOrldd Locxation");
+        System.out.println("HEllo WOrldd Location");
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -106,7 +107,7 @@ public class TabFragment_Info extends Fragment {
                             location.set(_location);
                             System.out.println("AAA" + location.getLatitude() + " " + location.getLongitude());
                             AsyncHttpClient client = new AsyncHttpClient();
-                            setWeather(client, location.getLatitude(), location.getLongitude(), infoWeatherTemp);
+                            setWeather(client, location.getLatitude(), location.getLongitude(), infoWeatherTemp, infoCity);
 
                             TextView[] infoMaskTitleArr = {infoMaskTitle1, infoMaskTitle2, infoMaskTitle3};
                             TextView[] infoMaskBodyArr = {infoMaskBody1, infoMaskBody2, infoMaskBody3,};
@@ -146,6 +147,7 @@ public class TabFragment_Info extends Fragment {
         getLastLocation(context);
 
         infoWeatherTemp = (TextView) view.findViewById((R.id.info_weathertempur));
+        infoCity = (TextView) view.findViewById((R.id.info_weatherplace));
 
         AsyncHttpClient client = new AsyncHttpClient();
         // Current News to display
@@ -232,9 +234,9 @@ public class TabFragment_Info extends Fragment {
                     Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
                     infoNewsImg.setImageBitmap(bmp);
                     // Description Set
-                    infoNewsBody.setText(main.getJSONObject(0).getString("description").substring(0, 20)+"...");
+                    infoNewsBody.setText(main.getJSONObject(0).getString("description").substring(0, 15)+"..."); //길이 너무 짧을 경우 어떻게 처리해야 하나. try?
                     // Title Set
-                    infoNewsTitle.setText(main.getJSONObject(0).getString("title").substring(0, 20)+"...");
+                    infoNewsTitle.setText(main.getJSONObject(0).getString("title").substring(0, 15)+"...");
                     class NewsOnClickListener implements View.OnClickListener
                     {
 
@@ -263,7 +265,7 @@ public class TabFragment_Info extends Fragment {
         });
     }
 
-    private synchronized void setWeather(AsyncHttpClient client, Double latitude, Double longitude, final TextView infoWeatherTemp){
+    private synchronized void setWeather(AsyncHttpClient client, Double latitude, Double longitude, final TextView infoWeatherTemp, final TextView infoCity){
         System.out.println("BBB"+location);
         client.get(generateWeatherUrl(latitude, longitude), new JsonHttpResponseHandler() {
             @SuppressLint("SetTextI18n")
@@ -272,20 +274,25 @@ public class TabFragment_Info extends Fragment {
                 // If the response is JSONObject instead of expected JSONArray
                 JSONObject main = null;
                 String _temperature = "";
-//                JSONObject city = null;
-//                city = response.;
+                JSONObject city = null;
+                String _city = "";
                 try {
                     main = response.getJSONObject("main");
+                    city = response.getJSONObject("name");
                     _temperature = main.getString("temp");
+                    _city = city.toString();
 
                 } catch (JSONException e) {
                     Log.d("", "ERROR");
                 }
                 Log.d("", _temperature);
+                Log.d("", _city);
                 temperature = _temperature;
+                cityy = _city;
+                infoCity.setText("위치: "+cityy);
                 System.out.println((temperature));
                 try {
-                    infoWeatherTemp.setText(temperature.substring(0, 4)+"ºc"); //0,2 로 안 바꿔도 되던데
+                    infoWeatherTemp.setText(temperature.substring(0, 4)+"ºc"); //0,2 로?
                 }
                 catch (Exception e){
                     infoWeatherTemp.setText(temperature+"ºc");
